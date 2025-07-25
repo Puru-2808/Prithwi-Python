@@ -1,0 +1,58 @@
+import turtle
+t=turtle.Turtle()
+t.color("#ff9933")
+t.begin_fill()
+t.forward(250)
+t.left(90)
+t.forward(100)
+t.left(90)
+t.forward(250)
+t.left(90)
+t.forward(100)
+t.end_fill()
+
+t.color("black","white")
+t.forward(100)
+t.left(90)
+t.forward(250)
+t.left(90)
+t.forward(100)
+
+t.left(90)
+t.penup()
+t.forward(250)
+t.left(90)
+t.forward(100)
+t.pendown()
+
+t.color("#056608")
+t.begin_fill()
+t.forward(100)
+t.left(90)
+t.forward(250)
+t.left(90)
+t.forward(100)
+t.left(90)
+t.forward(250)
+t.end_fill()
+
+t.right(179)
+t.penup()
+t.forward(130)
+t.pendown()
+
+t.color("blue")
+t.circle(50)
+
+t.left(90)
+t.penup()
+t.forward(48)
+t.pendown()
+
+t.pensize(2)
+for i in range(24):
+	t.forward(53)
+	t.backward(53)
+	t.left(15)
+
+turtle.done()

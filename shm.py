@@ -23,5 +23,5 @@ for i in range(1,n):
     yy.append(yf)
 plt.plot(xx,yy,'-r')
 plt.grid()
-plt.show()d()
+plt.show()
 plt.show()

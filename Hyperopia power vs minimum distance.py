@@ -18,6 +18,6 @@ for i in range(n):
 
 plt.plot(pp,vv)
 plt.xlabel("power")
-plt.ylabel("minimum distance they cam see")
+plt.ylabel("minimum distance they can see")
 plt.grid()
 plt.show()

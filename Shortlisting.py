@@ -16,4 +16,5 @@ add=[]
 for i in range(len(Gate1)):
     add.append(Gate1[i]+Oces1[i])
 
-print(np.sort(add))
+a=np.sort(add)
+print(a[::-1])

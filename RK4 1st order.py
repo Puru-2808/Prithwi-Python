@@ -26,14 +26,6 @@ for i in range(n):
     xx.append(x)
     yy.append(y)
 
-xx1=[]
-yy1=[]
-for i in range(n):
-    x1=xi+i*h
-    y1=0.5*math.exp((5/4)*math.sin(4*x1))
-    xx1.append(x1)
-    yy1.append(y1)
 
 plt.plot(xx,yy)
-plt.plot(xx1,yy1)
 plt.show()

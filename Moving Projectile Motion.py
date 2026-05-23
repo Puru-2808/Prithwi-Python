@@ -2,30 +2,55 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-fig,ax=plt.subplots()
-theta=np.pi/6
-u=20
+# initial value of states position and velocity
+angle=0
+theta=(np.pi/180)*angle
+u=50  
 g=9.8
-T=2*u*np.sin(theta)/g
-R=u**2*np.sin(2*theta)/g
-H=(u**2*(np.sin(theta))**2)/(2*g)
-line,=ax.plot([],[],'ro')
-ax.set_xlim(0,R)
-ax.set_ylim(0,H)
+h=1.651
+dt=0.01
+x=0
+y=h
+t=0
+xt=[]
+yt=[]
+tt=[]
+vx=u*np.cos(theta)
+vy=u*np.sin(theta)
+
+
+fig,ax=plt.subplots()
+line,=ax.plot([],[],'r-')
+point,=ax.plot([],[],'bo')
+ax.set_xlim(0,100)
+ax.set_ylim(0,200)
+
 
 def update(frame):
-    t=frame
-    x=u*np.cos(theta)*t
-    y=u*np.sin(theta)*t-0.5*g*t**2
-    line.set_data([x],[y])
-    return line,
+    global x,y,vx,vy,t
+    x=x+vx*dt
+    y=y+vy*dt
+    vy=vy-g*dt
+    t=t+dt
+    xt.append(x)
+    yt.append(y)
+    tt.append(t)
+    line.set_data(xt,yt)
+    point.set_data([x],[y])
+    R=xt[-1]
+    H=yt[-1]
+    T=tt[-1]
+    if y<=0.001:
+        print("Time of flight:",T)
+        print("Range:",R)
+        print("Max height:",max(yt))
+        ani.event_source.stop()
+    return line,point
 
-N=200
 ani=FuncAnimation(
     fig,
     update,
-    frames=np.linspace(0,T,N),
-    interval=(T*1000)/N,
+    interval=dt*1000,
     blit=False
 )
 

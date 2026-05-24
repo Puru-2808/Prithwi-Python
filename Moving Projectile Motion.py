@@ -3,15 +3,15 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 # initial value of states position and velocity
-angle=90
+angle=75
 theta=(np.pi/180)*angle
-u=(11.2)*1000
+u=10*1000/3600
 G=6.674*10**(-11)
 M=5.972*10**(24)
 Re=6.371*10**6
 g=G*M/(Re**2)
-h=0
-dt=1
+h=120/100
+dt=0.01
 x=0
 y=h
 t=0
@@ -25,8 +25,8 @@ vy=u*np.sin(theta)
 fig,ax=plt.subplots()
 line,=ax.plot([],[],'r-')
 point,=ax.plot([],[],'bo')
-ax.set_xlim(0,1000000)
-ax.set_ylim(0,2000000)
+ax.set_xlim(0,4)
+ax.set_ylim(0,5)
 
 
 def update(frame):
